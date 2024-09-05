@@ -11,6 +11,7 @@ on:
 
 jobs:
   build-java:
+
     runs-on: ubuntu-latest
     
     steps:
@@ -30,13 +31,8 @@ jobs:
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
-        image: omnagare/java-application
+        image: nanajanashia/demo-app
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-
-    # Debugging step (ensure this is removed or commented out before final deployment)
-    - name: Debug secrets
-      run: |
-        echo "DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}"
-        echo "DOCKER_PASSWORD=${{ secrets.DOCKER_PASSWORD }}"
+         
